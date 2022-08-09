@@ -1,0 +1,5 @@
+fastapi==0.79.0
+Jinja2==3.0.1
+pymongo==4.2.0
+numpy
+uvicorn[standard]

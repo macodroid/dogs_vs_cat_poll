@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: mongo-pod
+      app: realtimepoll
+  template:
+    metadata:
+      labels:
+        name: mongo-pod
+        app: realtimepoll
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017

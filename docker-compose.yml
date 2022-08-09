@@ -1,0 +1,20 @@
+version: '3'
+services:
+  dogs_cats:
+    container_name: dogs_cats
+    image: dogs_cats:latest
+    depends_on:
+      - mongodb
+    networks:
+      - dogs_cats_network
+    ports:
+      - "8000:8000"
+
+  mongodb:
+    image: mongo:latest
+    networks:
+      - dogs_cats_network
+
+networks:
+  dogs_cats_network:
+    driver: bridge

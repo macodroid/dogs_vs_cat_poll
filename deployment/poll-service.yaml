@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: poll-service
+  labels:
+    name: poll-service
+    app: realtimepoll
+spec:
+  type: NodePort
+  selector:
+    name: poll-pod
+    app: realtimepoll
+  ports:
+  - port: 8000
+    targetPort: 8000
+    nodePort: 30006

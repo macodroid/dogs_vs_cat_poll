@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: realtimevote
+  labels:
+    app: realtimevote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: realtimevote
+  template:
+    metadata:
+      labels:
+        app: realtimevote
+    spec:
+      containers:
+        - name: realtimevote
+          image: myimage/dogs_cats:latest
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Never

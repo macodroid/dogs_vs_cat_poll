@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: real-time-poll-mongodb-1
+  labels:
+    name: real-time-poll-mongodb-1
+    app: realtimepoll
+spec:
+  selector:
+    name: mongo-pod
+    app: realtimepoll
+  ports:
+  - port: 27017
+    targetPort: 27017

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poll-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: poll-pod
+      app: realtimepoll
+  template:
+    metadata:
+      labels:
+        name: poll-pod
+        app: realtimepoll
+    spec:
+      containers:
+      - name: realtimepoll
+        image: dogs_cats
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
